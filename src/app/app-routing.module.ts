@@ -8,6 +8,8 @@ const routes: Routes = [
     { path: "browse", loadChildren: () => import("~/app/components/browse/browse.module").then((m) => m.BrowseModule) },
     { path: "search", loadChildren: () => import("~/app/components/search/search.module").then((m) => m.SearchModule) },
     { path: "featured", loadChildren: () => import("~/app/components/featured/featured.module").then((m) => m.FeaturedModule) },
+    { path: "aboutme", loadChildren: () => import("~/app/components/aboutme/aboutme.module").then((m) => m.AboutMeModule) },
+   /*  { path: "moredetails", loadChildren: () => import("~/app/components/moredetails/moredetails.module").then((m)=>m.MoreDetailsModule) }, */
     { path: "settings", loadChildren: () => import("~/app/components/settings/settings.module").then((m) => m.SettingsModule) }
 ];
 
