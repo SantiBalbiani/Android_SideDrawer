@@ -14,12 +14,15 @@
     </ActionItem>
     <Label text="More Details"></Label>
 </ActionBar>
+<StackLayout>
+<!-- <GridLayout  class="page__content"> -->
+    <Label  class="page__content-icon far" text="&#xf2bb;"></Label>
+    <Label   id="cargarsaludo" class="nt-drawer__list-item" text="{{message}}"></Label>
+    <Button   text="Seleccioname" class="nt-drawer__list-item nuevoColor" (tap)="onTap($event)" ></Button>
+<!-- </GridLayout> -->
 
-<GridLayout class="page__content">
-    <Label class="page__content-icon far" text="&#xf2bb;"></Label>
-    <Label class="page__content-placeholder" text="Hello, I am learning Nativescript and Angular :)"></Label>
 
-</GridLayout>
+</StackLayout>
 
 <router-outlet></router-outlet>
 <!-- <router-outlet name="sub"></router-outlet> -->
