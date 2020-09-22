@@ -16,7 +16,10 @@ Side drawer for Android.
 7. al menos una vista donde se use el ngfor.
 >Se utiliza ngfor en search.component.html
 8. al menos un archivo de estilos css que presente sobrecarga de nombres para Android e iOS, es decir, para que se personalicen los estilos en cada sistema operativo.
->WIP
+>Se utilizaron 3 archivos para realizar sobrecarga sobre .nuevoColor: moredetails.css, moredetails.android.css y moredetails.ios.css.
+> El css ios transforma la fuente en color verde. El css android transforma el fondo en color verde.
+>Dichos componentes se importaron en el componente MoreDetails, se ejecutó el emulador de Android, y se verificó que el fondo del botón es verde, 
+>con lo cual queda demostrado que los import actúan según lo esperado.
 9. al menos un ícono que esté personalizado dentro de App_resources, dentro de los recursos de imágenes.
 >Pending
 10. al menos en un componente typescript, un código que asigne un valor a una variable, cuando se está en Android solamente.
