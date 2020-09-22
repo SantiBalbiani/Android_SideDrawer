@@ -21,6 +21,9 @@ Side drawer for Android.
 >Dichos componentes se importaron en el componente MoreDetails, se ejecutó el emulador de Android, y se verificó que el fondo del botón es verde, 
 >con lo cual queda demostrado que los import actúan según lo esperado.
 9. al menos un ícono que esté personalizado dentro de App_resources, dentro de los recursos de imágenes.
->Pending
+>Se personalizaron los íconos de los siguientes directorios:
+>App_Resources/Android/src/main/res/drawable-hdpi/icon.png
+>App_Resources/Android/src/main/res/drawable-ldpi/icon.png
+>App_Resources/Android/src/main/res/drawable-mdpi/icon.png
 10. al menos en un componente typescript, un código que asigne un valor a una variable, cuando se está en Android solamente.
->WIP
+>Dentro del componente MoreDetails, cuando se selecciona el botón, se evalúa si el usuario se encuentra en Android. En caso afirmativo imprime "Usted está en Android".
