@@ -7,10 +7,26 @@ import { MoreDetailsComponent } from "../moredetails/moredetails.component";
 
 const routes: Routes = [ 
      
-    { path: "", component: AboutMeComponent }
-    ,{ path: "/moredetails", component: MoreDetailsComponent } 
-    ,{path: '', redirectTo: '/aboutme', pathMatch: 'full'}
+    { path: "", 
+    component: AboutMeComponent,
+    
+     children: [       
+        {
+            path: 'moredetails',
+            component: MoreDetailsComponent,
+            outlet:"sub" 
+        },
+    ], redirectTo: '', pathMatch: 'full'
+    
+          },
+          { path: "moredetails", component: MoreDetailsComponent }   
+  /*   ,
+    { path: "/moredetails", component: MoreDetailsComponent }  */
+    /* ,{path: '', redirectTo: '/aboutme', pathMatch: 'full'} */
 ];
+
+
+
 
 @NgModule({
     imports: [NativeScriptRouterModule.forChild(routes)],
