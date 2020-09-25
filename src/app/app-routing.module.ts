@@ -6,6 +6,7 @@ const routes: Routes = [
     { path: "", redirectTo: "/home", pathMatch: "full" },
     { path: "home", loadChildren: () => import("~/app/components/home/home.module").then((m) => m.HomeModule) },
     { path: "browse", loadChildren: () => import("~/app/components/browse/browse.module").then((m) => m.BrowseModule) },
+    { path: "productList", loadChildren: () => import("~/app/components/productList/productList.module").then((m) => m.ProductListModule) },
     { path: "search", loadChildren: () => import("~/app/components/search/search.module").then((m) => m.SearchModule) },
     { path: "featured", loadChildren: () => import("~/app/components/featured/featured.module").then((m) => m.FeaturedModule) },
     { path: "aboutme", loadChildren: () => import("~/app/components/aboutme/aboutme.module").then((m) => m.AboutMeModule) },

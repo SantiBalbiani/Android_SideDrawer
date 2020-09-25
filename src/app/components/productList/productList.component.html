@@ -12,22 +12,31 @@
     <ActionItem icon="res://menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()"
         ios.position="left">
     </ActionItem>
-    <Label text="Busqueda"></Label>
+    <Label text="Lista de Productos"></Label>
 </ActionBar>
 
 <StackLayout class="page__content">
     <Label class="page__content-icon fas" text="&#xf002;"></Label>
-    <!--    <Label class="page__content-placeholder" *ngFor="let s of this.noticias.buscar()" [text]="s"></Label>-->
-    <ListView class="list-group" [items]="this.noticias.buscar()" (itemtap)="onItemTap($event)"
+
+    <ListView class="list-group" [items]="this.productos.buscar()" (itemtap)="onItemTap($event)"
               style="height:1250px">
         <ng-template let-x="item">
             <FlexboxLayout flexDirection="row" class="list-group-item">
                 <Image src="res://icon" class="thumb img-circle"></Image>
                 <Label [text]="x" class="list-group-item-heading"
-                       verticalAlignment="center" style="width:64%"></Label>
+                       verticalAlignment="center" style="width:65%" (tap)="onItemTap($event)"></Label>
+            
             </FlexboxLayout>
         </ng-template>
     </ListView>
 
 
 </StackLayout>
+
+
+
+
+     <!--   <Label class="page__content-placeholder" *ngFor="let s of this.noticias.buscar()" [text]="s"></Label> -->
+
+
+    
