@@ -3,10 +3,10 @@ import { Injectable } from "@angular/core";
 
 @Injectable()
 export class ProductosService {
-    private productos: Array<String> = [];
+    private productos: Array<{name: String, detail: String}> = [];
 
-    agregar(name: String){
-        this.productos.push(name);
+    agregar(product: {name: String, detail: String}){
+        this.productos.push(product);
     }
 
     buscar(){

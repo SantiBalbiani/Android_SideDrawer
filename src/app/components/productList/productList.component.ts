@@ -19,8 +19,8 @@ export class ProductList implements OnInit {
 
     ngOnInit(): void {
         // Init your component properties here.
-        this.productos.agregar("test1");
-        this.productos.agregar("test2");
+        this.productos.agregar({name:"Producto 1", detail:"Detalle 1 del producto 1"});
+        this.productos.agregar({name:"Producto 2", detail:"algo 2"});
     }
 
     onDrawerButtonTap(): void {

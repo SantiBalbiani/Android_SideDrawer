@@ -16,15 +16,15 @@
 </ActionBar>
 
 <StackLayout class="page__content">
-    <Label class="page__content-icon fas" text="&#xf002;"></Label>
+    <Label class="page__content-icon fas" text="&#xf003;"></Label>
 
     <ListView class="list-group" [items]="this.productos.buscar()" (itemtap)="onItemTap($event)"
               style="height:1250px">
         <ng-template let-x="item">
             <FlexboxLayout flexDirection="row" class="list-group-item">
                 <Image src="res://icon" class="thumb img-circle"></Image>
-                <Label [text]="x" class="list-group-item-heading"
-                       verticalAlignment="center" style="width:65%" (tap)="onItemTap($event)"></Label>
+                <Label [text]="x.name" class="list-group-item-heading"
+                       verticalAlignment="center" style="width:65%" [nsRouterLink]="['productdetail']"></Label>
             
             </FlexboxLayout>
         </ng-template>
@@ -32,7 +32,7 @@
 
 
 </StackLayout>
-
+<router-outlet></router-outlet>
 
 
 
