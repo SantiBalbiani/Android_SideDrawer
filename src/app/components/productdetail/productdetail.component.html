@@ -12,11 +12,37 @@
     <ActionItem icon="res://menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()"
     ios.position="left">
 </ActionItem>
-<Label text="Detalle del Producto"></Label>
+<Label Style="color:#10C2B0" text="Detalle y Opiniones del Producto"></Label>
 </ActionBar>
 
 <StackLayout class="page__content">
     <Label class="page__content-icon fas" text="&#xf005;"></Label>
      <Label class="page__content-placeholder" [text]="aProduct.detail"></Label> 
+
+     <PullToRefresh (refresh)="refreshList($event)">
+       <ListView class="list-group" height="300" [items]="this.getDetail()">
+        <ng-template let-x="item">
+        <GridLayout columns="auto,0,auto" rows="auto, 25" verticalAlignment="top" backgroundColor="lightgray" >
+        <Image src="res://icon" rowSpan="2" width="72" height="72" margin="3" verticalAlignment="top" ></Image>
+        <Label [text]="x.opinion" textWrap="true" col="1" colSpan="2" minHeight="50" fontSize="20" margin="3"></Label> 
+        <!-- verticalAlignment="center" style="width: 60%"> -->
+        <Label [text]="x.usuario" textWrap="true" col="1" row="1" verticalAlignment="bottom" horizontalAlignment="left" fontSize="14" margin="3"></Label> 
+        <Label [text]="x.puntaje" textWrap="true" col="2" row="1" color="#10C2B0" verticalAlignment="bottom"  fontSize="14" margin="3"></Label> 
+        </GridLayout>
+        </ng-template>
+       </ListView>
+       </PullToRefresh> 
+
+<!--        <RadListView class="list-group" pullToRefresh="true" [items]="this.getDetail"
+    (itemTap)="onItemTap($event)" (loaded)="onLoaded($event)">
+    <ng-template let-country="item">
+        <FlexboxLayout flexDirection="row" class="list-group-item">
+            <Image [src]="country.imageSrc" class="thumb img-circle"></Image>
+            <Label [text]="country.name" class="list-group-item-heading"
+                verticalAlignment="center" style="width: 60%"></Label>
+        </FlexboxLayout>
+    </ng-template>
+    </RadListView> -->
+       
 </StackLayout>
 
