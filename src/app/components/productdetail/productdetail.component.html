@@ -17,10 +17,10 @@
 
 <StackLayout class="page__content">
     <Label class="page__content-icon fas" text="&#xf005;"></Label>
-     <Label class="page__content-placeholder" [text]="aProduct.detail"></Label> 
+     <Label class="page__content-placeholder" Style="color:black" [text]="aProduct.detail"></Label> 
 
-     <PullToRefresh (refresh)="refreshList($event)">
-       <ListView class="list-group" height="300" [items]="this.getDetail()">
+     <PullToRefresh (refresh)="onPull($event)">
+       <ListView class="list-group"  [items]="this.getDetail()">
         <ng-template let-x="item">
         <GridLayout columns="auto,0,auto" rows="auto, 25" verticalAlignment="top" backgroundColor="lightgray" >
         <Image src="res://icon" rowSpan="2" width="72" height="72" margin="3" verticalAlignment="top" ></Image>
