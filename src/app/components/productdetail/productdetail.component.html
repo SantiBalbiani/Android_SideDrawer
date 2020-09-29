@@ -10,9 +10,13 @@
     because its function is to always navigate back in the application.
     -->
     <ActionItem icon="res://menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()"
-        ios.position="left">
-    </ActionItem>
-    <Label text="Detalle del Producto"></Label>
+    ios.position="left">
+</ActionItem>
+<Label text="Detalle del Producto"></Label>
 </ActionBar>
 
+<StackLayout class="page__content">
+    <Label class="page__content-icon fas" text="&#xf005;"></Label>
+     <Label class="page__content-placeholder" [text]="aProduct.detail"></Label> 
+</StackLayout>
 

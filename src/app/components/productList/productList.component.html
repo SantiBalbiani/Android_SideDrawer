@@ -24,7 +24,8 @@
             <FlexboxLayout flexDirection="row" class="list-group-item">
                 <Image src="res://icon" class="thumb img-circle"></Image>
                 <Label [text]="x.name" class="list-group-item-heading"
-                       verticalAlignment="center" style="width:65%" [nsRouterLink]="['productdetail']"></Label>
+                       verticalAlignment="center" style="width:65%" [nsRouterLink]="['productdetail', x.id]"> </Label>
+                      <!--  [nsRouterLink]="['productdetail/x.id']"></Label> -->
             
             </FlexboxLayout>
         </ng-template>
@@ -32,8 +33,8 @@
 
 
 </StackLayout>
-<router-outlet></router-outlet>
-
+<!-- <router-outlet></router-outlet>
+<router-outlet name="sub"></router-outlet>  -->
 
 
      <!--   <Label class="page__content-placeholder" *ngFor="let s of this.noticias.buscar()" [text]="s"></Label> -->

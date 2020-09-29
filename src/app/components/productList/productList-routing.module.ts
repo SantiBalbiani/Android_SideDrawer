@@ -13,14 +13,14 @@ const routes: Routes = [
     
      children: [       
         {
-            path: 'productdetail',
+            path: 'productdetail/:id',
             component: ProductDetail,
             outlet:"sub" 
         },
     ], redirectTo: '', pathMatch: 'full'
     
           },
-          { path: "productdetail", component: ProductDetail }   
+          { path: "productdetail/:id", component: ProductDetail }   
   /*   ,
     { path: "/moredetails", component: MoreDetailsComponent }  */
     /* ,{path: '', redirectTo: '/aboutme', pathMatch: 'full'} */

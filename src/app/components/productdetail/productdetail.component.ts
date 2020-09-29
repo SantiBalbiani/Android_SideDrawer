@@ -1,6 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 import * as app from "tns-core-modules/application";
+import { NavigationEnd, Router, ActivatedRoute } from "@angular/router";
+import { ProductosService } from "~/app/domain/productos.service";
+import { PageRoute } from "nativescript-angular/router";
 
 @Component({
     selector: "ProductDetail",
@@ -8,8 +11,14 @@ import * as app from "tns-core-modules/application";
 })
 export class ProductDetail implements OnInit {
 
-    constructor() {
+    private id:String = '';
+    private aProduct;
+    
+    constructor(private router: Router, private route: ActivatedRoute, private productos: ProductosService) {
         // Use the component constructor to inject providers.
+        this.route.params.subscribe(param => this.id = param.id);
+        this.aProduct = productos.buscar().filter( prod => prod.id === this.id.toString())[0];
+        
     }
 
     ngOnInit(): void {
@@ -19,5 +28,10 @@ export class ProductDetail implements OnInit {
     onDrawerButtonTap(): void {
         const sideDrawer = <RadSideDrawer>app.getRootView();
         sideDrawer.showDrawer();
+    }
+
+    //Not used
+    getDetail(){
+        return this.aProduct.detail;
     }
 }
