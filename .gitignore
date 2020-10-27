@@ -2,7 +2,7 @@
 hooks/
 node_modules/
 platforms/
-package-lock.json
+
 
 # NativeScript Template
 *.js.map
@@ -34,3 +34,6 @@ typings/
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+
+
+package-lock.json
