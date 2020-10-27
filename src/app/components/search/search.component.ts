@@ -10,6 +10,8 @@ import { NoticiasService } from "~/app/domain/noticias.service";
 
 })
 export class SearchComponent implements OnInit {
+    resultados: Array<String>;
+
 
     constructor(private noticias: NoticiasService) {
 
@@ -29,6 +31,10 @@ export class SearchComponent implements OnInit {
     }
 
     onItemTap(x): void {
-    this.noticias.agregar('Seleccionaste un itemmn');
+        this.noticias.agregar('Seleccionaste un itemmn');
+    }
+
+    buscarAhora(unTexto: string){
+        this.resultados = this.noticias.buscar().filter( (x) => x.indexOf(unTexto) >= 0);
     }
 }

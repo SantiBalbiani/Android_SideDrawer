@@ -17,8 +17,9 @@
 
 <StackLayout class="page__content">
     <Label class="page__content-icon fas" text="&#xf002;"></Label>
+    <SearchForm (search)="buscarAhora($event)"></SearchForm>
     <!--    <Label class="page__content-placeholder" *ngFor="let s of this.noticias.buscar()" [text]="s"></Label>-->
-    <ListView class="list-group" [items]="this.noticias.buscar()" (itemtap)="onItemTap($event)"
+    <ListView class="list-group" [items]="this.resultados" [inicial]="hola"  (itemtap)="onItemTap($event)"
               style="height:1250px">
         <ng-template let-x="item">
             <FlexboxLayout flexDirection="row" class="list-group-item">
