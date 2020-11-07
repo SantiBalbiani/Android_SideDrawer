@@ -5,8 +5,16 @@ import {Component, EventEmitter, Input, Output, OnInit} from '@angular/core';
 @Component({
     selector: "SearchForm",
     moduleId: module.id,
-    template: `<TextField [(ngModel)]="textFieldValue" hint="Enter Text... "></TextField>
-    <Button text="Button" (tap)="onButtonTap()"></Button>`
+    template: `<FlexboxLayout flexDirection="row">
+    <TextField #texto="ngModel" [(ngModel)]="textFieldValue"
+    hint="Ingresar texto..." required minlen="4">
+    </TextField>
+    <Label *ngIf="texto.hasError('required')" text="*"></Label>
+    <Label *ngIf="!texto.hasError('required')
+    && texto.hasError('minlen')" text="Ingrese al menos 4 letras">
+    </Label>
+    </FlexboxLayout>
+    <Button text="Buscar!" (tap)="onButtonTap()" *ngIf="texto.valid"></Button>`
 })
 
 export class SearchFormComponent implements OnInit {

@@ -22,11 +22,11 @@
               style="height:1250px">
         <ng-template let-x="item">
             <FlexboxLayout flexDirection="row" class="list-group-item">
-                <Image src="res://icon" class="thumb img-circle"></Image>
+                <Image src="res://icon" class="thumb "></Image>
                 <Label [text]="x.name" class="list-group-item-heading"
                        verticalAlignment="center" style="width:65%" [nsRouterLink]="['productdetail', x.id]"> </Label>
                       <!--  [nsRouterLink]="['productdetail/x.id']"></Label> -->
-            
+                <Button text="Eliminar" (tap)="eliminarProducto(x.name)"></Button>
             </FlexboxLayout>
         </ng-template>
     </ListView>

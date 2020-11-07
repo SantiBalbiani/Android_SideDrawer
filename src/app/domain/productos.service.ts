@@ -9,6 +9,11 @@ export class ProductosService {
         this.productos.push(product);
     }
 
+    quitar(nombreProducto: String){
+        this.productos.filter( producto => producto.name != nombreProducto);
+        console.log(this.productos);
+    }
+
     buscar(){
         return this.productos;
     }

@@ -15,7 +15,7 @@
     <Label text="Busqueda"></Label>
 </ActionBar>
 
-<StackLayout class="page__content">
+<StackLayout class="page__content" #layout>
     <Label class="page__content-icon fas" text="&#xf002;"></Label>
     <SearchForm (search)="buscarAhora($event)"></SearchForm>
     <!--    <Label class="page__content-placeholder" *ngFor="let s of this.noticias.buscar()" [text]="s"></Label>-->

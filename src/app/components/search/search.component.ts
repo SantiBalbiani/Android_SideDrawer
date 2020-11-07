@@ -1,8 +1,8 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ElementRef, ViewChild  } from "@angular/core";
 import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 import * as app from "tns-core-modules/application";
 import { NoticiasService } from "~/app/domain/noticias.service";
-
+import {Color, View} from 'tns-core-modules/ui/core/view/view';
 @Component({
     selector: "Search",
     moduleId: module.id,
@@ -11,7 +11,7 @@ import { NoticiasService } from "~/app/domain/noticias.service";
 })
 export class SearchComponent implements OnInit {
     resultados: Array<String>;
-
+    @ViewChild("layout", {static:false}) layout: ElementRef;
 
     constructor(private noticias: NoticiasService) {
 
@@ -36,5 +36,16 @@ export class SearchComponent implements OnInit {
 
     buscarAhora(unTexto: string){
         this.resultados = this.noticias.buscar().filter( (x) => x.indexOf(unTexto) >= 0);
+
+        const layout = <View>this.layout.nativeElement;
+        layout.animate({
+            backgroundColor: new Color("blue"),
+            duration: 300,
+            delay: 150
+        }).then(()=> layout.animate({
+            backgroundColor: new Color("white"),
+            duration:300,
+            delay: 150
+        }))
     }
 }

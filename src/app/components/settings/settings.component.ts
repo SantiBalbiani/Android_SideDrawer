@@ -15,8 +15,9 @@ export class SettingsComponent implements OnInit {
         // Use the component constructor to inject providers.
     }
 
-    doLater(fn){ setTimeout(fn, 1000)};
     
+    // Función para simular el tiempo de procesamiento de los alert, toast y action.
+    doLater(fn){ setTimeout(fn, 1000)};
 
     ngOnInit(): void {
 
@@ -25,8 +26,8 @@ export class SettingsComponent implements OnInit {
       3  Agrega un “toast” que notifique la edición correcta de un elemento al cambiar el atributo editado con el “action”. */
 
 
-        // Basic example of Altert, Toast y Action
- /*        this.doLater( () =>{
+        // Basic example of Altert, Action
+        this.doLater( () =>{
             dialogs.action("mensaje", "cancelar!", ["Opcion1", "Opcion2"])
             .then((result) => {
                 console.log("resultado: " + result);
@@ -48,7 +49,7 @@ export class SettingsComponent implements OnInit {
                     )
                 }
             })
-        }) */
+        })
 
         // Ejemplo Toast: Ventanas que figuran durante unos segundos
         const toastOptions: Toast.ToastOptions = {text: "Hello Mundo", duration: Toast.DURATION.SHORT};

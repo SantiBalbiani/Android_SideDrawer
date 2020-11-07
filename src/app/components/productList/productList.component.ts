@@ -4,6 +4,8 @@ import * as app from "tns-core-modules/application";
 import { ProductosService } from "~/app/domain/productos.service";
 import { NavigationEnd, Router, ActivatedRoute } from "@angular/router";
 
+import * as dialogs from "tns-core-modules/ui/dialogs";
+import * as Toast from "nativescript-toasts";
 @Component({
     selector: "ProductList",
     moduleId: module.id,
@@ -15,6 +17,7 @@ export class ProductList implements OnInit {
     constructor(private router: Router, private productos: ProductosService) {
 
     }
+
 
     ngOnInit(): void {
         // Init your component properties here.
@@ -40,5 +43,19 @@ export class ProductList implements OnInit {
     onItemTap(x): void {
      // Redireccionar
      this.router.navigate(['/productList/productdetail']);
+    }
+
+    doLater(fn){ setTimeout(fn, 1000)};
+
+
+    eliminarProducto(nombreProducto){
+        this.productos.quitar(nombreProducto);
+        this.doLater(()=>
+                    dialogs.alert({
+                        title: "Confirmado",
+                        message: "Se ha eliminado el producto " + nombreProducto,
+                        okButtonText: "Okay"
+                    }).then(()=>console.log("Producto Eliminado"))
+                    )
     }
 }
