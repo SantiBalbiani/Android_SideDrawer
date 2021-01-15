@@ -12,14 +12,19 @@
     <ActionItem icon="res://menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()"
         ios.position="left">
     </ActionItem>
-    <Label text="Settings"></Label>
-   
+    <Label text="Editar Usuario"></Label>
 </ActionBar>
+<StackLayout>
+<!-- <GridLayout  class="page__content"> -->
+    <Label  class="page__content-icon far" text="&#xf2bb;"></Label>
+    <Label   id="cargarsaludo" class="nt-drawer__list-item" text="{{user}}"></Label>
 
-<FlexboxLayout flexDirection="column" width="auto" height="auto">
+    <EditForm (search)="actualizarUser($event)"></EditForm>
+    
+<!-- </GridLayout> -->
 
-    <Label width="auto" height="auto" class="page__content-icon fas" text="&#xf013;"></Label>
-    <Label  width="70" height="70"  class="page__content-placeholder"  text="Usuario: {{user}}"  id="usuario" ></Label>
-    <Button width="70" height="70" text="Editar Usuario" [nsRouterLink]="['edituser']" pageTransition="slide" clearHistory="true"></Button>
-    <Label  width="70" height="70" text="Desde esta sección puede editar su nombre de usuario"></Label>
-</FlexboxLayout>
+
+</StackLayout>
+
+<router-outlet></router-outlet>
+<!-- <router-outlet name="sub"></router-outlet> -->

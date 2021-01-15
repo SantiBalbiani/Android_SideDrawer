@@ -11,6 +11,8 @@ import * as Toast from "nativescript-toasts";
 })
 export class SettingsComponent implements OnInit {
 
+    public user = 'N/A';
+
     constructor() {
         // Use the component constructor to inject providers.
     }
@@ -61,4 +63,7 @@ export class SettingsComponent implements OnInit {
         const sideDrawer = <RadSideDrawer>app.getRootView();
         sideDrawer.showDrawer();
     }
+
+
+    
 }

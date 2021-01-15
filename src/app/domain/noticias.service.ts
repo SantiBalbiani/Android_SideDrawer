@@ -1,14 +1,32 @@
 import { Injectable } from "@angular/core";
-
+import {getJSON, request} from "tns-core-modules/http";
 @Injectable()
 export class NoticiasService {
-    private noticias: Array<String> = [];
+    
+      //Noticias hardcodeadas - viejo
+      //private noticias: Array<String> = [];
+    api: string = "https://671aa0e849d7.ngrok.io/";
 
     agregar(s: string){
-        this.noticias.push(s);
+        return request({
+            url: this.api + "get",
+            method: "POST",
+            headers: {"content-type": "application/json"},
+            content: JSON.stringify({
+                nuevo: s
+            })
+        })
+
+        //Noticias hardcodeadas - viejo
+        //this.noticias.push(s);
     }
 
-    buscar(){
-        return this.noticias;
+    favs(){
+        return getJSON(this.api + "get?q=")
+    }
+
+
+    buscar(s: string){
+        return getJSON(this.api + "get?q=" + s);
     }
 }

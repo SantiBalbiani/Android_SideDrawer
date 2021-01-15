@@ -3,6 +3,8 @@ import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 import * as app from "tns-core-modules/application";
 import { NoticiasService } from "~/app/domain/noticias.service";
 import {Color, View} from 'tns-core-modules/ui/core/view/view';
+import * as Toast from 'nativescript-toasts';
+
 @Component({
     selector: "Search",
     moduleId: module.id,
@@ -19,10 +21,11 @@ export class SearchComponent implements OnInit {
 
     ngOnInit(): void {
         // Init your component properties here.
-        this.noticias.agregar('Noticia 1');
+        // No hace falta hardcodear inicializaciones. Era para test
+/*         this.noticias.agregar('Noticia 1');
         this.noticias.agregar('Noticia 2');
         this.noticias.agregar('Noticia 3');
-        this.noticias.agregar('Noticia 4');
+        this.noticias.agregar('Noticia 4'); */
     }
 
     onDrawerButtonTap(): void {
@@ -35,6 +38,19 @@ export class SearchComponent implements OnInit {
     }
 
     buscarAhora(unTexto: string){
+        console.dir("buscar ahora" + unTexto);
+
+        this.noticias.buscar(unTexto).then((result: any) => {
+            console.log("resultado de busqueda: " + JSON.stringify(result));
+            this.resultados = result;
+        }, (errormsj) => {
+            console.log("error: " + errormsj);
+            Toast.show({text: "Error en la búsqueda", duration: Toast.DURATION.SHORT});
+        })
+    }
+
+    // Buscar elementos hardcodeados - Viejo
+/*     buscarAhora(unTexto: string){
         this.resultados = this.noticias.buscar().filter( (x) => x.indexOf(unTexto) >= 0);
 
         const layout = <View>this.layout.nativeElement;
@@ -47,5 +63,5 @@ export class SearchComponent implements OnInit {
             duration:300,
             delay: 150
         }))
-    }
+    } */
 }
