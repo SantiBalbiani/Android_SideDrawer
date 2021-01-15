@@ -50,6 +50,7 @@
     "nativescript-angular": "~8.21.0",
     "nativescript-localstorage": "^2.0.1",
     "nativescript-pulltorefresh": "^2.3.0",
+    "nativescript-sqlite": "^2.6.6",
     "nativescript-toasts": "^1.0.3",
     "nativescript-ui-sidedrawer": "~8.0.0",
     "reflect-metadata": "~0.1.12",

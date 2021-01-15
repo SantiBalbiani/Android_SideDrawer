@@ -5,7 +5,7 @@ import { SettingsRoutingModule } from "./settings-routing.module";
 import { SettingsComponent } from "./settings.component";
 import { EditUser } from "./edituser/edituser.component";
 import { EditFormComponent } from "./edituser/edituser-form.component";
-import { MinLenDirective } from "../search/validador";
+/* import { MinLenDirective } from "../search/validador"; */
 @NgModule({
     imports: [
         NativeScriptCommonModule,
@@ -15,8 +15,8 @@ import { MinLenDirective } from "../search/validador";
     declarations: [
         SettingsComponent,
         EditFormComponent,
-        EditUser,
-        MinLenDirective
+        EditUser
+        /* MinLenDirective */
     ],
     schemas: [
         NO_ERRORS_SCHEMA

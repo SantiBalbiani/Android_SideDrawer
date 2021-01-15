@@ -6,6 +6,7 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { NoticiasService } from "./domain/noticias.service";
 import { ProductosService } from "./domain/productos.service";
+import { MinLenDirective } from "./domain/validador";
 @NgModule({
     bootstrap: [
         AppComponent
@@ -15,7 +16,7 @@ import { ProductosService } from "./domain/productos.service";
         NativeScriptModule,
         NativeScriptUISideDrawerModule
     ],
-    providers: [NoticiasService, ProductosService],
+    providers: [NoticiasService, ProductosService, MinLenDirective],
     declarations: [
         AppComponent
     ],
