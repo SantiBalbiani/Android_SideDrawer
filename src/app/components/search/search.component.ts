@@ -2,8 +2,11 @@ import { Component, OnInit, ElementRef, ViewChild  } from "@angular/core";
 import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 import * as app from "tns-core-modules/application";
 import { NoticiasService } from "~/app/domain/noticias.service";
-import {Color, View} from 'tns-core-modules/ui/core/view/view';
-import * as Toast from 'nativescript-toasts';
+import { Noticia, NuevaNoticiaAction} from "../../domain/noticias-state.model"
+import { Store } from "@ngrx/store";
+import { AppState } from "../../app.module";
+/* import {Color, View} from 'tns-core-modules/ui/core/view/view'; */
+import * as Toast from "nativescript-toasts";
 
 @Component({
     selector: "Search",
@@ -12,11 +15,12 @@ import * as Toast from 'nativescript-toasts';
 
 })
 export class SearchComponent implements OnInit {
-    resultados: Array<String>;
+    resultados: Array<String> = [];
     @ViewChild("layout", {static:false}) layout: ElementRef;
 
-    constructor(private noticias: NoticiasService) {
-
+    constructor(private noticias: NoticiasService, private store: Store<AppState>) {
+        
+        
     }
 
     ngOnInit(): void {
@@ -26,6 +30,15 @@ export class SearchComponent implements OnInit {
         this.noticias.agregar('Noticia 2');
         this.noticias.agregar('Noticia 3');
         this.noticias.agregar('Noticia 4'); */
+        this.store.select((state) => state.noticias.sugerida).subscribe((data) => {
+            const f = data;
+            
+            if (f != null){
+        
+                const toastOptions: Toast.ToastOptions = {text: "Sugerimos leer: " + f.titulo, duration: Toast.DURATION.SHORT};
+                Toast.show(toastOptions);
+            }
+        });
     }
 
     onDrawerButtonTap(): void {
@@ -33,8 +46,10 @@ export class SearchComponent implements OnInit {
         sideDrawer.showDrawer();
     }
 
-    onItemTap(x): void {
-        this.noticias.agregar('Seleccionaste un itemmn');
+    onItemTap(args): void {
+       // this.noticias.agregar('Seleccionaste un itemmn');
+       console.log("hice tap");
+       this.store.dispatch(new NuevaNoticiaAction(new Noticia(args.view.bindingContext)));
     }
 
     buscarAhora(unTexto: string){

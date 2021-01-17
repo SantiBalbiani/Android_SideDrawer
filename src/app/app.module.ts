@@ -7,6 +7,33 @@ import { AppComponent } from "./app.component";
 import { NoticiasService } from "./domain/noticias.service";
 import { ProductosService } from "./domain/productos.service";
 import { MinLenDirective } from "./domain/validador";
+
+// Redux State Mgmnt.
+import { EffectsModule } from "@ngrx/effects";
+import { ActionReducerMap, StoreModule as NgRxStoreModule} from "@ngrx/store";
+import {
+    intializeNoticiasState,
+    NoticiasEffects,
+    NoticiasState,
+    reducersNoticias
+} from "./domain/noticias-state.model";
+// End Redux State Mgmnt.
+
+export interface AppState{
+    noticias: NoticiasState;
+}
+
+const reducers: ActionReducerMap<AppState> = {
+    noticias: reducersNoticias
+};
+
+const reducersInitialState = {
+    noticias: intializeNoticiasState()
+};
+
+
+
+
 @NgModule({
     bootstrap: [
         AppComponent
@@ -14,7 +41,9 @@ import { MinLenDirective } from "./domain/validador";
     imports: [
         AppRoutingModule,
         NativeScriptModule,
-        NativeScriptUISideDrawerModule
+        NativeScriptUISideDrawerModule,
+        NgRxStoreModule.forRoot(reducers, { initialState: reducersInitialState}),
+        EffectsModule.forRoot([NoticiasEffects])
     ],
     providers: [NoticiasService, ProductosService, MinLenDirective],
     declarations: [

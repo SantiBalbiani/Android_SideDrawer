@@ -46,6 +46,8 @@
     "@angular/platform-browser-dynamic": "~8.2.0",
     "@angular/router": "~8.2.0",
     "@nativescript/theme": "~2.3.0",
+    "@ngrx/effects": "^10.1.2",
+    "@ngrx/store": "^10.1.2",
     "@nstudio/nativescript-pulltorefresh": "^2.0.0",
     "nativescript-angular": "~8.21.0",
     "nativescript-localstorage": "^2.0.1",
