@@ -13,9 +13,14 @@ android {
   defaultConfig {
     minSdkVersion 17
     generatedDensities = []
-	applicationId = "org.nativescript.DrawerNavigation"
+    multiDexEnabled true
+	  applicationId = "org.nativescript.DrawerNavigation.sbalbiani"
   }
   aaptOptions {
     additionalParameters "--no-version-vectors"
   }
+}
+
+dependencies {
+  implementation "androidx.multidex:multidex:2.0.1"
 }

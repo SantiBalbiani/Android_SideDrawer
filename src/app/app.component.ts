@@ -4,6 +4,9 @@ import { RouterExtensions } from "nativescript-angular/router";
 import { DrawerTransitionBase, RadSideDrawer, SlideInOnTopTransition } from "nativescript-ui-sidedrawer";
 import { filter } from "rxjs/operators";
 import * as app from "tns-core-modules/application";
+import {Message } from "nativescript-plugin-firebase";
+import * as Toast from "nativescript-toasts";
+const firebase = require("nativescript-plugin-firebase");
 
 @Component({
     selector: "ns-app",
@@ -24,6 +27,19 @@ export class AppComponent implements OnInit {
         this.router.events
         .pipe(filter((event: any) => event instanceof NavigationEnd))
         .subscribe((event: NavigationEnd) => this._activatedUrl = event.urlAfterRedirects);
+
+        firebase.init({
+            onMessageReceivedCallback: (message: Message) => {
+                console.log(`Titulo: ${message.title}`);
+                console.log(`cuerpo: ${message.body}`);
+                console.log(`data: ${JSON.stringify(message.data)}`);
+                Toast.show({text: "Notificacion: " + message.title, duration: Toast.DURATION.SHORT});
+            },
+            onPushTokenReceivedCallback: (token) => console.log("Firebase push token" + token)
+        }).then(
+            () => console.log("firebase.init iniciado :)"),
+            (error) => console.log(`error en firebase.init. Descr: ${error}`)
+        );
     }
 
     get sideDrawerTransition(): DrawerTransitionBase {

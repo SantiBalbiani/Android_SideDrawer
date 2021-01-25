@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "329697575909",
+    "project_id": "myfirstmobileapp-111f4",
+    "storage_bucket": "myfirstmobileapp-111f4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:329697575909:android:b9d8cb8ea68079e3e9650c",
+        "android_client_info": {
+          "package_name": "org.nativescript.DrawerNavigation.sbalbiani"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "329697575909-k5lqf0ugdskqklrtng02rfi3c45kum18.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD_jm4Vg3bWXN-E93XfbH9rtUpuuiAukGU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "329697575909-k5lqf0ugdskqklrtng02rfi3c45kum18.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
