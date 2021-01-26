@@ -7,7 +7,7 @@ export class NoticiasService {
     
       //Noticias hardcodeadas - viejo
       //private noticias: Array<String> = [];
-    api: string = " https://46d90dd67cf3.ngrok.io/";
+    api: string = "https://3a4f13c06fd7.ngrok.io/";
 
 
     constructor(){

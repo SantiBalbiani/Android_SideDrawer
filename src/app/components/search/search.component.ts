@@ -7,7 +7,7 @@ import { Store } from "@ngrx/store";
 import { AppState } from "../../app.module";
 /* import {Color, View} from 'tns-core-modules/ui/core/view/view'; */
 import * as Toast from "nativescript-toasts";
-
+import * as SocialShare from "nativescript-social-share";
 @Component({
     selector: "Search",
     moduleId: module.id,
@@ -50,6 +50,12 @@ export class SearchComponent implements OnInit {
        // this.noticias.agregar('Seleccionaste un itemmn');
        console.log("hice tap");
        this.store.dispatch(new NuevaNoticiaAction(new Noticia(args.view.bindingContext)));
+    }
+
+
+    onLongPress(s): void {
+        console.log(s);
+        SocialShare.shareText(s, "Asunto: compartime con tus amigos!");
     }
 
     buscarAhora(unTexto: string){

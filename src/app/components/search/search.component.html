@@ -18,16 +18,16 @@
 <StackLayout class="page__content" #layout>
     <Label class="page__content-icon fas" text="&#xf002;"></Label>
     <SearchForm (search)="buscarAhora($event)" [inicial]="'hola'"></SearchForm>
-    <!--    <Label class="page__content-placeholder" *ngFor="let s of this.noticias.buscar()" [text]="s"></Label>-->
-    <ListView class="list-group" [items]="this.resultados" (itemTap)="onItemTap($event)" style="height:1250px">
+    <ListView class="list-group" [items]="this.resultados" (itemTap)="onItemTap($event)"
+    style="height:1250px">
         <ng-template let-x="item">
             <FlexboxLayout flexDirection="row" class="list-group-item">
-                <Image src="res://icon" class="thumb img-circle"></Image>
+                <Image src="res://icon" class="thumb img-circle" (longPress)="onLongPress(x)"></Image>
                 <Label [text]="x" class="list-group-item-heading"
-                       verticalAlignment="center" style="width:60%"></Label>
+                    verticalAlignment="center" style="width: 60%"></Label>
             </FlexboxLayout>
         </ng-template>
-    </ListView>
+    </ListView>    
 
 
 </StackLayout>
