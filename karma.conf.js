@@ -28,8 +28,19 @@ module.exports = function (config) {
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress'],
+    reporters: ['progress', 'junit'],
 
+    //Agrego custom config para junit.
+    junitReporter: {
+      outputDir: process.env.JUNIT_REPORT_PATH || '', // para especificar el nombre de salida de la carpeta donde se guardaran los archivos.
+      outputFile: process.env.JUNIT_REPORT_NAME || undefined, // para especificar el nombre de salida del archivo de reportes.
+      suite: '', // para especificar un nombre de paquete para la suite.
+      useBrowserName: false, // para agregar reportes de navegador.
+      nameFormatter: undefined, // function (browser, result) para personalizar el nombre de los atributos.
+      classNameFormatter: undefined, // function (browser, result) para personalizar el nombre de las clases.
+      properties: {}
+      }, 
+     
 
     // web server port
     port: 9876,
@@ -70,7 +81,7 @@ module.exports = function (config) {
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
-    singleRun: false
+    singleRun: true
   };
 
   setWebpackPreprocessor(config, options);

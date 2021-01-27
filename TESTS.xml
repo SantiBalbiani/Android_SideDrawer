@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<testsuite name="Chrome 87.0.4280.141 (Windows 10)" package="" timestamp="2021-01-27T08:44:13" id="0" hostname="nblx105" tests="0" errors="1" failures="0" time="0">
+  <properties>
+    <property name="browser.fullName" value="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36"/>
+  </properties>
+  <system-out>
+    <![CDATA[Chrome 87.0.4280.141 (Windows 10) ERROR
+  An error was thrown in afterAll
+  Uncaught ReferenceError: global is not defined
+  ReferenceError: global is not defined
+      at src/app/domain/noticias-state.model.spec.js:137:28
+      at src/app/domain/noticias-state.model.spec.js:151:10
+,Chrome 87.0.4280.141 (Windows 10) ERROR
+  Disconnected Client disconnected from CONNECTED state (transport close)
+,Chrome 87.0.4280.141 (Windows 10) ERROR
+  An error was thrown in afterAll
+  Uncaught ReferenceError: global is not defined
+  ReferenceError: global is not defined
+      at src/app/domain/noticias-state.model.spec.js:137:28
+      at src/app/domain/noticias-state.model.spec.js:151:10
+
+]]>
+  </system-out>
+  <system-err/>
+</testsuite>
