@@ -25,7 +25,15 @@
 		android:allowBackup="true"
 		android:icon="@drawable/icon"
 		android:label="@string/app_name"
-		android:theme="@style/AppTheme">
+		android:theme="@style/AppTheme"
+		android:usesCleartextTraffic="true">
+
+	<meta-data
+		android:name="com.google.android.geo.API_KEY"
+		android:value="@string/nativescript_google_maps_api_key" />
+	<uses-library
+		android:name="org.apache.http.legacy"
+		android:required="false" />
 
 	<service android:enabled="false" android:name="com.android.notification.MyFirebaseMessagingService">
 		<intent-filter>
